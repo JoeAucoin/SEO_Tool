@@ -9,7 +9,7 @@ using DotNetNuke.Services.Search;
 
 namespace GIBS.SEO_Tool.Components
 {
-    public class SEO_ToolController : ISearchable, IPortable
+    public class SEO_ToolController :  IPortable
     {
 
         #region public method
@@ -76,32 +76,7 @@ namespace GIBS.SEO_Tool.Components
 
         #endregion
 
-        #region ISearchable Members
-
-        /// <summary>
-        /// Implements the search interface required to allow DNN to index/search the content of your
-        /// module
-        /// </summary>
-        /// <param name="modInfo"></param>
-        /// <returns></returns>
-        public DotNetNuke.Services.Search.SearchItemInfoCollection GetSearchItems(ModuleInfo modInfo)
-        {
-            SearchItemInfoCollection searchItems = new SearchItemInfoCollection();
-
-            List<SEO_ToolInfo> infos = GetSEO_Tools(modInfo.ModuleID);
-
-            foreach (SEO_ToolInfo info in infos)
-            {
-                SearchItemInfo searchInfo = new SearchItemInfo(modInfo.ModuleTitle, info.Content, info.CreatedByUser, info.CreatedDate,
-                                                    modInfo.ModuleID, info.ItemId.ToString(), info.Content, "Item=" + info.ItemId.ToString());
-                searchItems.Add(searchInfo);
-            }
-
-            return searchItems;
-        }
-
-        #endregion
-
+    
         #region IPortable Members
 
         /// <summary>
