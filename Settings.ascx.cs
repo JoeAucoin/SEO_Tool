@@ -6,7 +6,7 @@ using GIBS.SEO_Tool.Components;
 
 namespace GIBS.Modules.SEO_Tool
 {
-    public partial class Settings : ModuleSettingsBase
+    public partial class Settings : SEO_ToolSettings
     {
 
         /// <summary>
@@ -19,51 +19,51 @@ namespace GIBS.Modules.SEO_Tool
             {
                 if (!IsPostBack)
                 {
-                    SEO_ToolSettings settingsData = new SEO_ToolSettings(this.TabModuleId);
+                    //      SEO_ToolSettings settingsData = new SEO_ToolSettings(this.TabModuleId);
 
-                    if (settingsData.PageTitle != null)
+                    if (Settings.Contains("pageTitle"))
                     {
-                        txtPageTitle.Text = settingsData.PageTitle;
+                        txtPageTitle.Text = PageTitle;
                     }
-                    if (settingsData.QueryStringKey != null)
+                    if (Settings.Contains("queryStringKey"))
                     {
-                        txtQueryStringKey.Text = settingsData.QueryStringKey;
-                    }
-
-                    if (settingsData.QueryStringKeyDefaultText != null)
-                    {
-                        txtQueryStringKeyDefaultText.Text = settingsData.QueryStringKeyDefaultText;
+                        txtQueryStringKey.Text = QueryStringKey;
                     }
 
-
-                    if (settingsData.QueryStringKey2 != null)
+                    if (Settings.Contains("queryStringKeyDefaultText"))
                     {
-                        txtQueryStringKey2.Text = settingsData.QueryStringKey2;
-                    }
-
-                    if (settingsData.QueryStringKey2DefaultText != null)
-                    {
-                        txtQueryStringKey2DefaultText.Text = settingsData.QueryStringKey2DefaultText;
-                    }
-
-                    if (settingsData.QueryStringKey3 != null)
-                    {
-                        txtQueryStringKey3.Text = settingsData.QueryStringKey3;
-                    }
-
-                    if (settingsData.QueryStringKey3DefaultText != null)
-                    {
-                        txtQueryStringKey3DefaultText.Text = settingsData.QueryStringKey3DefaultText;
+                        txtQueryStringKeyDefaultText.Text = QueryStringKeyDefaultText;
                     }
 
 
-                    if (settingsData.Keywords != null)
+                    if (Settings.Contains("queryStringKey2"))
                     {
-                        txtKeywords.Text = settingsData.Keywords;
+                        txtQueryStringKey2.Text = QueryStringKey2;
                     }
-                    if (settingsData.PageDescription != null)
+
+                    if (Settings.Contains("queryStringKey2DefaultText"))
                     {
-                        txtPageDescription.Text = settingsData.PageDescription;
+                        txtQueryStringKey2DefaultText.Text = QueryStringKey2DefaultText;
+                    }
+
+                    if (Settings.Contains("queryStringKey3"))
+                    {
+                        txtQueryStringKey3.Text = QueryStringKey3;
+                    }
+
+                    if (Settings.Contains("queryStringKey3DefaultText"))
+                    {
+                        txtQueryStringKey3DefaultText.Text = QueryStringKey3DefaultText;
+                    }
+
+
+                    if (Settings.Contains("keywords"))
+                    {
+                        txtKeywords.Text = Keywords;
+                    }
+                    if (Settings.Contains("pageDescription"))
+                    {
+                        txtPageDescription.Text = PageDescription;
                     }
                 }
             }
@@ -80,17 +80,15 @@ namespace GIBS.Modules.SEO_Tool
         {
             try
             {
-                SEO_ToolSettings settingsData = new SEO_ToolSettings(this.TabModuleId);
-             //   settingsData.Template = txtTemplate.Text;
-                settingsData.QueryStringKey = txtQueryStringKey.Text;
-                settingsData.QueryStringKeyDefaultText = txtQueryStringKeyDefaultText.Text;
-                settingsData.QueryStringKey2 = txtQueryStringKey2.Text;
-                settingsData.QueryStringKey2DefaultText = txtQueryStringKey2DefaultText.Text;
-                settingsData.QueryStringKey3 = txtQueryStringKey3.Text;
-                settingsData.QueryStringKey3DefaultText = txtQueryStringKey3DefaultText.Text;
-                settingsData.PageTitle = txtPageTitle.Text;
-                settingsData.Keywords = txtKeywords.Text;
-                settingsData.PageDescription = txtPageDescription.Text;
+                QueryStringKey = txtQueryStringKey.Text;
+                QueryStringKeyDefaultText = txtQueryStringKeyDefaultText.Text;
+                QueryStringKey2 = txtQueryStringKey2.Text;
+                QueryStringKey2DefaultText = txtQueryStringKey2DefaultText.Text;
+                QueryStringKey3 = txtQueryStringKey3.Text;
+                QueryStringKey3DefaultText = txtQueryStringKey3DefaultText.Text;
+                PageTitle = txtPageTitle.Text;
+                Keywords = txtKeywords.Text;
+                PageDescription = txtPageDescription.Text;
             }
             catch (Exception ex)
             {

@@ -16,7 +16,7 @@ using DotNetNuke.Common;
 
 namespace GIBS.Modules.SEO_Tool
 {
-    public partial class ViewSEO_Tool : PortalModuleBase, IActionable
+    public partial class ViewSEO_Tool : SEO_ToolSettings, IActionable
     {
 
 
@@ -111,56 +111,56 @@ namespace GIBS.Modules.SEO_Tool
             try
             {
 
-                SEO_ToolSettings settingsData = new SEO_ToolSettings(this.TabModuleId);
+                //    SEO_ToolSettings settingsData = new SEO_ToolSettings(this.TabModuleId);
 
 
 
-                if (settingsData.QueryStringKey != null)
+                if (Settings.Contains("queryStringKey"))
                 {
-                    _QueryStringKey = settingsData.QueryStringKey.ToString();
+                    _QueryStringKey = QueryStringKey.ToString();
                 }
 
-                if (settingsData.QueryStringKeyDefaultText != null)
+                if (Settings.Contains("queryStringKeyDefaultText"))
                 {
-                    _QueryStringKeyDefaultText = settingsData.QueryStringKeyDefaultText.ToString();
+                    _QueryStringKeyDefaultText = QueryStringKeyDefaultText.ToString();
                 }
 
-                if (settingsData.QueryStringKey2 != null)
+                if (Settings.Contains("queryStringKey2"))
                 {
-                    _QueryStringKey2 = settingsData.QueryStringKey2.ToString();
+                    _QueryStringKey2 = QueryStringKey2.ToString();
                 }
 
-                if (settingsData.QueryStringKey2DefaultText != null)
+                if (Settings.Contains("queryStringKey2DefaultText"))
                 {
-                    _QueryStringKey2DefaultText = settingsData.QueryStringKey2DefaultText.ToString();
+                    _QueryStringKey2DefaultText = QueryStringKey2DefaultText.ToString();
                 }
 
-                if (settingsData.QueryStringKey3 != null)
+                if (Settings.Contains("queryStringKey3"))
                 {
-                    _QueryStringKey3 = settingsData.QueryStringKey3.ToString();
+                    _QueryStringKey3 = QueryStringKey3.ToString();
                 }
 
-                if (settingsData.QueryStringKey3DefaultText != null)
+                if (Settings.Contains("queryStringKey3DefaultText"))
                 {
-                    _QueryStringKey3DefaultText = settingsData.QueryStringKey3DefaultText.ToString();
+                    _QueryStringKey3DefaultText = QueryStringKey3DefaultText.ToString();
                 }
 
-                if (settingsData.PageTitle != null)
+                if (Settings.Contains("pageTitle"))
                 {
 
-                    _PageTitle = settingsData.PageTitle.ToString();
+                    _PageTitle = PageTitle.ToString();
                 }
 
-                if (settingsData.PageDescription != null)
+                if (Settings.Contains("pageDescription"))
                 {
-                    _PageDescription = settingsData.PageDescription.ToString();
+                    _PageDescription = PageDescription.ToString();
                 }
                 //
 
-                if (settingsData.Keywords != null)
+                if (Settings.Contains("keywords"))
                 {
 
-                    _Keywords = settingsData.Keywords.ToString();
+                    _Keywords = Keywords.ToString();
 
                 }
 

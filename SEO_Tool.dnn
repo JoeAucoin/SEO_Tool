@@ -1,5 +1,5 @@
 ﻿<dotnetnuke type="Package" version="5.0">
-  <packages><package name="GIBS.SEO_Tool" type="Module" version="1.0.9">
+  <packages><package name="GIBS.SEO_Tool" type="Module" version="1.0.10">
   <friendlyName>GIBS - SEO Tool</friendlyName>
   <description>GIBS - SEO Tool</description>
   <iconFile />
@@ -21,7 +21,7 @@
         </script>
         <script type="UnInstall">
           <name>Uninstall.SqlDataProvider</name>
-          <version>1.0.9</version>
+          <version>1.0.10</version>
         </script>
       </scripts>
     </component>

@@ -1,132 +1,155 @@
-using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 
 using DotNetNuke.Entities.Modules;
-using DotNetNuke.Services.Localization;
-using DotNetNuke.Common;
 
 namespace GIBS.SEO_Tool.Components
 {
     /// <summary>
     /// Provides strong typed access to settings used by module
     /// </summary>
-    public class SEO_ToolSettings
+    public class SEO_ToolSettings : ModuleSettingsBase
     {
-        ModuleController controller;
-        int tabModuleId;
-
-        public SEO_ToolSettings(int tabModuleId)
-        {
-            controller = new ModuleController();
-            this.tabModuleId = tabModuleId;
-        }
-
-        protected T ReadSetting<T>(string settingName, T defaultValue)
-        {
-            Hashtable settings = controller.GetTabModuleSettings(this.tabModuleId);
-
-            T ret = default(T);
-
-            if (settings.ContainsKey(settingName))
-            {
-                System.ComponentModel.TypeConverter tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
-                try
-                {
-                    ret = (T)tc.ConvertFrom(settings[settingName]);
-                }
-                catch
-                {
-                    ret = defaultValue;
-                }
-            }
-            else
-                ret = defaultValue;
-
-            return ret;
-        }
-
-        protected void WriteSetting(string settingName, string value)
-        {
-            controller.UpdateTabModuleSetting(this.tabModuleId, settingName, value);
-        }
-
-        #region public properties
-
-        /// <summary>
-        /// get/set template used to render the module content
-        /// to the user
-        /// </summary>
-        //public string Template
-        //{
-        //    get { return ReadSetting<string>("template", null); }
-        //    set { WriteSetting("template", value); }
-        //}
-
-        //DefaultText
+        
 
         public string QueryStringKey
         {
-            get { return ReadSetting<string>("queryStringKey", null); }
-            set { WriteSetting("queryStringKey", value); }
+            get
+            {
+                if (Settings.Contains("queryStringKey"))
+                    return Settings["queryStringKey"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "queryStringKey", value.ToString());
+            }
         }
+
         public string QueryStringKeyDefaultText
         {
-            get { return ReadSetting<string>("queryStringKeyDefaultText", null); }
-            set { WriteSetting("queryStringKeyDefaultText", value); }
+            get
+            {
+                if (Settings.Contains("queryStringKeyDefaultText"))
+                    return Settings["queryStringKeyDefaultText"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "queryStringKeyDefaultText", value.ToString());
+            }
         }
 
 
         public string QueryStringKey2
         {
-            get { return ReadSetting<string>("queryStringKey2", null); }
-            set { WriteSetting("queryStringKey2", value); }
+            get
+            {
+                if (Settings.Contains("queryStringKey2"))
+                    return Settings["queryStringKey2"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "queryStringKey2", value.ToString());
+            }
         }
+
 
         public string QueryStringKey2DefaultText
         {
-            get { return ReadSetting<string>("queryStringKey2DefaultText", null); }
-            set { WriteSetting("queryStringKey2DefaultText", value); }
+            get
+            {
+                if (Settings.Contains("queryStringKey2DefaultText"))
+                    return Settings["queryStringKey2DefaultText"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "queryStringKey2DefaultText", value.ToString());
+            }
         }
+
 
         public string QueryStringKey3
         {
-            get { return ReadSetting<string>("queryStringKey3", null); }
-            set { WriteSetting("queryStringKey3", value); }
+            get
+            {
+                if (Settings.Contains("queryStringKey3"))
+                    return Settings["queryStringKey3"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "queryStringKey3", value.ToString());
+            }
         }
+
 
         public string QueryStringKey3DefaultText
         {
-            get { return ReadSetting<string>("queryStringKey3DefaultText", null); }
-            set { WriteSetting("queryStringKey3DefaultText", value); }
+            get
+            {
+                if (Settings.Contains("queryStringKey3DefaultText"))
+                    return Settings["queryStringKey3DefaultText"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "queryStringKey3DefaultText", value.ToString());
+            }
         }
+
 
         public string PageTitle
         {
-            get { return ReadSetting<string>("pageTitle", null); }
-            set { WriteSetting("pageTitle", value); }
+            get
+            {
+                if (Settings.Contains("pageTitle"))
+                    return Settings["pageTitle"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "pageTitle", value.ToString());
+            }
         }
 
         public string Keywords
         {
-            get { return ReadSetting<string>("keywords", null); }
-            set { WriteSetting("keywords", value); }
+            get
+            {
+                if (Settings.Contains("keywords"))
+                    return Settings["keywords"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "keywords", value.ToString());
+            }
         }
 
         public string PageDescription
         {
-            get { return ReadSetting<string>("pageDescription", null); }
-            set { WriteSetting("pageDescription", value); }
+            get
+            {
+                if (Settings.Contains("pageDescription"))
+                    return Settings["pageDescription"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "pageDescription", value.ToString());
+            }
         }
 
-
-        #endregion
+        //#endregion
     }
 }

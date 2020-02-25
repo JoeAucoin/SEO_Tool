@@ -32,7 +32,7 @@ namespace GIBS.SEO_Tool.Components
         /// <returns></returns>
         public SEO_ToolInfo GetSEO_Tool(int moduleId, int itemId)
         {
-            return (SEO_ToolInfo)CBO.FillObject(DataProvider.Instance().GetSEO_Tool(moduleId, itemId), typeof(SEO_ToolInfo));
+            return CBO.FillObject<SEO_ToolInfo>(DataProvider.Instance().GetSEO_Tool(moduleId, itemId));
         }
 
 
